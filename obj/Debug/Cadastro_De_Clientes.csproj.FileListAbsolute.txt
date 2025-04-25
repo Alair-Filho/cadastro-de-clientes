@@ -1,0 +1,10 @@
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\obj\Debug\Cadastro_De_Clientes.csproj.AssemblyReference.cache
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\obj\Debug\Cadastro_De_Clientes.Form1.resources
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\obj\Debug\Cadastro_De_Clientes.csproj.GenerateResource.cache
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\bin\Debug\Cadastro_De_Clientes.exe.config
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\bin\Debug\Cadastro_De_Clientes.exe
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\bin\Debug\Cadastro_De_Clientes.pdb
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\obj\Debug\Cadastro_De_Clientes.Properties.Resources.resources
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\obj\Debug\Cadastro_De_Clientes.csproj.CoreCompileInputs.cache
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\obj\Debug\Cadastro_De_Clientes.exe
+C:\Users\giova\OneDrive\Documentos\Projeto_CadastroDeClientes\Cadastro_De_Clientes\obj\Debug\Cadastro_De_Clientes.pdb
