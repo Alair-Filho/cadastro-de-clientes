@@ -4,3 +4,7 @@
 *.user
 *.suo
 *.userosscache
+
+# Ignorar pastas de build
+bin/
+obj/

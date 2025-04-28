@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cadastro_De_Clientes
 {
-    public partial class Form1: Form
+    public partial class FrmCadCliente: Form
     {
-        public Form1()
+        public FrmCadCliente()
         {
             InitializeComponent();
         }
@@ -25,6 +25,25 @@ namespace Cadastro_De_Clientes
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmCadCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
