@@ -44,37 +44,38 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.TxtId = new System.Windows.Forms.TextBox();
+            this.TxtName = new System.Windows.Forms.TextBox();
+            this.TxtRg = new System.Windows.Forms.TextBox();
+            this.TxtNum = new System.Windows.Forms.TextBox();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.TxtObs = new System.Windows.Forms.TextBox();
+            this.OpMan = new System.Windows.Forms.RadioButton();
+            this.OpFem = new System.Windows.Forms.RadioButton();
+            this.OpOthers = new System.Windows.Forms.RadioButton();
+            this.CkSitua = new System.Windows.Forms.CheckBox();
+            this.TxtDoc = new System.Windows.Forms.MaskedTextBox();
+            this.TxtDate = new System.Windows.Forms.MaskedTextBox();
+            this.TxtCep = new System.Windows.Forms.MaskedTextBox();
+            this.TxtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.OpCpf = new System.Windows.Forms.RadioButton();
+            this.OpCnpj = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.CbStatus = new System.Windows.Forms.ComboBox();
+            this.CbState = new System.Windows.Forms.ComboBox();
+            this.CbAddress = new System.Windows.Forms.ComboBox();
+            this.CbBairro = new System.Windows.Forms.ComboBox();
+            this.CbCity = new System.Windows.Forms.ComboBox();
+            this.imgCliente = new System.Windows.Forms.PictureBox();
+            this.BtAddImage = new System.Windows.Forms.Button();
+            this.BtDeletePhoto = new System.Windows.Forms.Button();
+            this.BtClose = new System.Windows.Forms.Button();
+            this.Btnew = new System.Windows.Forms.Button();
+            this.BtSave = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,7 +127,7 @@
             this.label6.Size = new System.Drawing.Size(86, 18);
             this.label6.TabIndex = 0;
             this.label6.Text = "Estado Civil";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            
             // 
             // label7
             // 
@@ -147,7 +148,7 @@
             this.label8.Size = new System.Drawing.Size(72, 18);
             this.label8.TabIndex = 0;
             this.label8.Text = "Endereço";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            
             // 
             // label9
             // 
@@ -158,7 +159,7 @@
             this.label9.Size = new System.Drawing.Size(123, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Data Nascimento";
-            this.label9.Click += new System.EventHandler(this.label6_Click);
+            
             // 
             // label10
             // 
@@ -179,7 +180,7 @@
             this.label11.Size = new System.Drawing.Size(54, 18);
             this.label11.TabIndex = 0;
             this.label11.Text = "Cidade";
-            this.label11.Click += new System.EventHandler(this.label8_Click);
+            
             // 
             // label12
             // 
@@ -200,7 +201,7 @@
             this.label13.Size = new System.Drawing.Size(50, 18);
             this.label13.TabIndex = 0;
             this.label13.Text = "E-mail";
-            this.label13.Click += new System.EventHandler(this.label8_Click);
+            
             // 
             // label14
             // 
@@ -231,164 +232,164 @@
             this.label16.Size = new System.Drawing.Size(25, 18);
             this.label16.TabIndex = 0;
             this.label16.Text = "N°";
-            this.label16.Click += new System.EventHandler(this.label8_Click);
+            
             // 
-            // textBox1
+            // TxtId
             // 
-            this.textBox1.Location = new System.Drawing.Point(206, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(136, 24);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TabStop = false;
+            this.TxtId.Location = new System.Drawing.Point(206, 61);
+            this.TxtId.Name = "TxtId";
+            this.TxtId.Size = new System.Drawing.Size(136, 24);
+            this.TxtId.TabIndex = 1;
+            this.TxtId.TabStop = false;
             // 
-            // textBox2
+            // TxtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(364, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(324, 24);
-            this.textBox2.TabIndex = 0;
+            this.TxtName.Location = new System.Drawing.Point(364, 61);
+            this.TxtName.Name = "TxtName";
+            this.TxtName.Size = new System.Drawing.Size(324, 24);
+            this.TxtName.TabIndex = 0;
             // 
-            // textBox5
+            // TxtRg
             // 
-            this.textBox5.Location = new System.Drawing.Point(206, 214);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(136, 24);
-            this.textBox5.TabIndex = 5;
+            this.TxtRg.Location = new System.Drawing.Point(206, 214);
+            this.TxtRg.Name = "TxtRg";
+            this.TxtRg.Size = new System.Drawing.Size(136, 24);
+            this.TxtRg.TabIndex = 5;
             // 
-            // textBox10
+            // TxtNum
             // 
-            this.textBox10.Location = new System.Drawing.Point(616, 290);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(72, 24);
-            this.textBox10.TabIndex = 10;
+            this.TxtNum.Location = new System.Drawing.Point(616, 290);
+            this.TxtNum.Name = "TxtNum";
+            this.TxtNum.Size = new System.Drawing.Size(72, 24);
+            this.TxtNum.TabIndex = 10;
             // 
-            // textBox11
+            // TxtEmail
             // 
-            this.textBox11.Location = new System.Drawing.Point(415, 429);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(273, 24);
-            this.textBox11.TabIndex = 15;
+            this.TxtEmail.Location = new System.Drawing.Point(415, 429);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(273, 24);
+            this.TxtEmail.TabIndex = 15;
             // 
-            // textBox15
+            // TxtObs
             // 
-            this.textBox15.Location = new System.Drawing.Point(42, 483);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(646, 67);
-            this.textBox15.TabIndex = 16;
+            this.TxtObs.Location = new System.Drawing.Point(42, 483);
+            this.TxtObs.Multiline = true;
+            this.TxtObs.Name = "TxtObs";
+            this.TxtObs.Size = new System.Drawing.Size(646, 67);
+            this.TxtObs.TabIndex = 16;
             // 
-            // radioButton1
+            // OpMan
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Location = new System.Drawing.Point(364, 139);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(94, 22);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Masculino";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.OpMan.AutoSize = true;
+            this.OpMan.BackColor = System.Drawing.Color.Transparent;
+            this.OpMan.Location = new System.Drawing.Point(364, 139);
+            this.OpMan.Name = "OpMan";
+            this.OpMan.Size = new System.Drawing.Size(94, 22);
+            this.OpMan.TabIndex = 4;
+            this.OpMan.TabStop = true;
+            this.OpMan.Text = "Masculino";
+            this.OpMan.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // OpFem
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Location = new System.Drawing.Point(482, 139);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 22);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.Text = "Feminino";
-            this.radioButton2.UseVisualStyleBackColor = false;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.OpFem.AutoSize = true;
+            this.OpFem.BackColor = System.Drawing.Color.Transparent;
+            this.OpFem.Location = new System.Drawing.Point(482, 139);
+            this.OpFem.Name = "OpFem";
+            this.OpFem.Size = new System.Drawing.Size(87, 22);
+            this.OpFem.TabIndex = 2;
+            this.OpFem.Text = "Feminino";
+            this.OpFem.UseVisualStyleBackColor = false;
+            
             // 
-            // radioButton3
+            // OpOthers
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton3.Location = new System.Drawing.Point(616, 139);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(72, 22);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.Text = "Outros";
-            this.radioButton3.UseVisualStyleBackColor = false;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.OpOthers.AutoSize = true;
+            this.OpOthers.BackColor = System.Drawing.Color.Transparent;
+            this.OpOthers.Location = new System.Drawing.Point(616, 139);
+            this.OpOthers.Name = "OpOthers";
+            this.OpOthers.Size = new System.Drawing.Size(72, 22);
+            this.OpOthers.TabIndex = 2;
+            this.OpOthers.Text = "Outros";
+            this.OpOthers.UseVisualStyleBackColor = false;
+            
             // 
-            // checkBox1
+            // CkSitua
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(191, 585);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 22);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.TabStop = false;
-            this.checkBox1.Text = "Ativo";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.CkSitua.AutoSize = true;
+            this.CkSitua.BackColor = System.Drawing.Color.Transparent;
+            this.CkSitua.Checked = true;
+            this.CkSitua.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CkSitua.Location = new System.Drawing.Point(191, 585);
+            this.CkSitua.Name = "CkSitua";
+            this.CkSitua.Size = new System.Drawing.Size(59, 22);
+            this.CkSitua.TabIndex = 3;
+            this.CkSitua.TabStop = false;
+            this.CkSitua.Text = "Ativo";
+            this.CkSitua.UseVisualStyleBackColor = false;
             // 
-            // maskedTextBox1
+            // TxtDoc
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(206, 139);
-            this.maskedTextBox1.Mask = "000,000,000-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(136, 24);
-            this.maskedTextBox1.TabIndex = 2;
-            this.maskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.TxtDoc.Location = new System.Drawing.Point(206, 139);
+            this.TxtDoc.Mask = "000,000,000-00";
+            this.TxtDoc.Name = "TxtDoc";
+            this.TxtDoc.Size = new System.Drawing.Size(136, 24);
+            this.TxtDoc.TabIndex = 2;
+            this.TxtDoc.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
-            // maskedTextBox2
+            // TxtDate
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(559, 214);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(129, 24);
-            this.maskedTextBox2.TabIndex = 7;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.TxtDate.Location = new System.Drawing.Point(559, 214);
+            this.TxtDate.Mask = "00/00/0000";
+            this.TxtDate.Name = "TxtDate";
+            this.TxtDate.Size = new System.Drawing.Size(129, 24);
+            this.TxtDate.TabIndex = 7;
+            this.TxtDate.ValidatingType = typeof(System.DateTime);
             // 
-            // maskedTextBox3
+            // TxtCep
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(42, 290);
-            this.maskedTextBox3.Mask = "00000-9999";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(143, 24);
-            this.maskedTextBox3.TabIndex = 8;
+            this.TxtCep.Location = new System.Drawing.Point(42, 290);
+            this.TxtCep.Mask = "00000-9999";
+            this.TxtCep.Name = "TxtCep";
+            this.TxtCep.Size = new System.Drawing.Size(143, 24);
+            this.TxtCep.TabIndex = 8;
             // 
-            // maskedTextBox4
+            // TxtPhone
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(206, 429);
-            this.maskedTextBox4.Mask = " (00) 00000-0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(172, 24);
-            this.maskedTextBox4.TabIndex = 14;
+            this.TxtPhone.Location = new System.Drawing.Point(206, 429);
+            this.TxtPhone.Mask = " (00) 00000-0000";
+            this.TxtPhone.Name = "TxtPhone";
+            this.TxtPhone.Size = new System.Drawing.Size(172, 24);
+            this.TxtPhone.TabIndex = 14;
             // 
-            // radioButton4
+            // OpCpf
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton4.Location = new System.Drawing.Point(0, 3);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(56, 22);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "CPF";
-            this.radioButton4.UseVisualStyleBackColor = false;
+            this.OpCpf.AutoSize = true;
+            this.OpCpf.BackColor = System.Drawing.Color.Transparent;
+            this.OpCpf.Location = new System.Drawing.Point(0, 3);
+            this.OpCpf.Name = "OpCpf";
+            this.OpCpf.Size = new System.Drawing.Size(56, 22);
+            this.OpCpf.TabIndex = 0;
+            this.OpCpf.TabStop = true;
+            this.OpCpf.Text = "CPF";
+            this.OpCpf.UseVisualStyleBackColor = false;
             // 
-            // radioButton5
+            // OpCnpj
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton5.Location = new System.Drawing.Point(70, 3);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(66, 22);
-            this.radioButton5.TabIndex = 2;
-            this.radioButton5.Text = "CNPJ";
-            this.radioButton5.UseVisualStyleBackColor = false;
+            this.OpCnpj.AutoSize = true;
+            this.OpCnpj.BackColor = System.Drawing.Color.Transparent;
+            this.OpCnpj.Location = new System.Drawing.Point(70, 3);
+            this.OpCnpj.Name = "OpCnpj";
+            this.OpCnpj.Size = new System.Drawing.Size(66, 22);
+            this.OpCnpj.TabIndex = 2;
+            this.OpCnpj.Text = "CNPJ";
+            this.OpCnpj.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.radioButton5);
-            this.panel1.Controls.Add(this.radioButton4);
+            this.panel1.Controls.Add(this.OpCnpj);
+            this.panel1.Controls.Add(this.OpCpf);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(206, 107);
             this.panel1.Name = "panel1";
@@ -405,33 +406,33 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Estado";
             // 
-            // comboBox1
+            // CbStatus
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DropDownHeight = 100;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbStatus.DropDownHeight = 100;
+            this.CbStatus.FormattingEnabled = true;
+            this.CbStatus.IntegralHeight = false;
+            this.CbStatus.Items.AddRange(new object[] {
             "Solteiro(a)",
             "Casado(a)",
             "Divorciado(a)",
             "Viúvo(a)",
             "Separado(a)",
             "União estável"});
-            this.comboBox1.Location = new System.Drawing.Point(381, 214);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 26);
-            this.comboBox1.TabIndex = 6;
+            this.CbStatus.Location = new System.Drawing.Point(381, 214);
+            this.CbStatus.Name = "CbStatus";
+            this.CbStatus.Size = new System.Drawing.Size(172, 26);
+            this.CbStatus.TabIndex = 6;
             // 
-            // comboBox2
+            // CbState
             // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DropDownHeight = 100;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.IntegralHeight = false;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.CbState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbState.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbState.DropDownHeight = 100;
+            this.CbState.FormattingEnabled = true;
+            this.CbState.IntegralHeight = false;
+            this.CbState.Items.AddRange(new object[] {
             "Acre",
             "Alagoas",
             "Amapá",
@@ -459,155 +460,165 @@
             "São Paulo",
             "Sergipe",
             "Tocantins"});
-            this.comboBox2.Location = new System.Drawing.Point(42, 429);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(143, 26);
-            this.comboBox2.TabIndex = 13;
+            this.CbState.Location = new System.Drawing.Point(42, 429);
+            this.CbState.Name = "CbState";
+            this.CbState.Size = new System.Drawing.Size(143, 26);
+            this.CbState.TabIndex = 13;
             // 
-            // comboBox3
+            // CbAddress
             // 
-            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox3.DropDownHeight = 100;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.IntegralHeight = false;
-            this.comboBox3.Location = new System.Drawing.Point(206, 290);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(404, 26);
-            this.comboBox3.TabIndex = 9;
+            this.CbAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbAddress.DropDownHeight = 100;
+            this.CbAddress.FormattingEnabled = true;
+            this.CbAddress.IntegralHeight = false;
+            this.CbAddress.Location = new System.Drawing.Point(206, 290);
+            this.CbAddress.Name = "CbAddress";
+            this.CbAddress.Size = new System.Drawing.Size(404, 26);
+            this.CbAddress.TabIndex = 9;
             // 
-            // comboBox4
+            // CbBairro
             // 
-            this.comboBox4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox4.DropDownHeight = 100;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.IntegralHeight = false;
-            this.comboBox4.Location = new System.Drawing.Point(42, 361);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(143, 26);
-            this.comboBox4.TabIndex = 11;
+            this.CbBairro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbBairro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbBairro.DropDownHeight = 100;
+            this.CbBairro.FormattingEnabled = true;
+            this.CbBairro.IntegralHeight = false;
+            this.CbBairro.Location = new System.Drawing.Point(42, 361);
+            this.CbBairro.Name = "CbBairro";
+            this.CbBairro.Size = new System.Drawing.Size(143, 26);
+            this.CbBairro.TabIndex = 11;
             // 
-            // comboBox5
+            // CbCity
             // 
-            this.comboBox5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox5.DropDownHeight = 100;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.IntegralHeight = false;
-            this.comboBox5.Location = new System.Drawing.Point(206, 361);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(482, 26);
-            this.comboBox5.TabIndex = 12;
+            this.CbCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbCity.DropDownHeight = 100;
+            this.CbCity.FormattingEnabled = true;
+            this.CbCity.IntegralHeight = false;
+            this.CbCity.Location = new System.Drawing.Point(206, 361);
+            this.CbCity.Name = "CbCity";
+            this.CbCity.Size = new System.Drawing.Size(482, 26);
+            this.CbCity.TabIndex = 12;
             // 
-            // pictureBox1
+            // imgCliente
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(42, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 168);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.imgCliente.BackColor = System.Drawing.Color.Transparent;
+            this.imgCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgCliente.Image = ((System.Drawing.Image)(resources.GetObject("imgCliente.Image")));
+            this.imgCliente.Location = new System.Drawing.Point(42, 40);
+            this.imgCliente.Name = "imgCliente";
+            this.imgCliente.Size = new System.Drawing.Size(143, 168);
+            this.imgCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgCliente.TabIndex = 7;
+            this.imgCliente.TabStop = false;
             // 
-            // button1
+            // BtAddImage
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(42, 214);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 26);
-            this.button1.TabIndex = 8;
-            this.button1.TabStop = false;
-            this.button1.Text = "Imagem";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtAddImage.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BtAddImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtAddImage.FlatAppearance.BorderSize = 0;
+            this.BtAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtAddImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtAddImage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtAddImage.Image = ((System.Drawing.Image)(resources.GetObject("BtAddImage.Image")));
+            this.BtAddImage.Location = new System.Drawing.Point(42, 214);
+            this.BtAddImage.Name = "BtAddImage";
+            this.BtAddImage.Size = new System.Drawing.Size(94, 26);
+            this.BtAddImage.TabIndex = 8;
+            this.BtAddImage.TabStop = false;
+            this.BtAddImage.Text = "Imagem";
+            this.BtAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtAddImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtAddImage.UseVisualStyleBackColor = false;
+            
             // 
-            // button2
+            // BtDeletePhoto
             // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(142, 214);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(39, 24);
-            this.button2.TabIndex = 8;
-            this.button2.TabStop = false;
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
+            this.BtDeletePhoto.BackColor = System.Drawing.Color.Gray;
+            this.BtDeletePhoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtDeletePhoto.FlatAppearance.BorderSize = 0;
+            this.BtDeletePhoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtDeletePhoto.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtDeletePhoto.Image = ((System.Drawing.Image)(resources.GetObject("BtDeletePhoto.Image")));
+            this.BtDeletePhoto.Location = new System.Drawing.Point(142, 214);
+            this.BtDeletePhoto.Name = "BtDeletePhoto";
+            this.BtDeletePhoto.Size = new System.Drawing.Size(39, 24);
+            this.BtDeletePhoto.TabIndex = 8;
+            this.BtDeletePhoto.TabStop = false;
+            this.BtDeletePhoto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtDeletePhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtDeletePhoto.UseVisualStyleBackColor = false;
+            
             // 
-            // button3
+            // BtClose
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(42, 623);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 26);
-            this.button3.TabIndex = 8;
-            this.button3.TabStop = false;
-            this.button3.Text = "Fechar";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button1_Click);
+            this.BtClose.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtClose.FlatAppearance.BorderSize = 0;
+            this.BtClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtClose.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtClose.Image = ((System.Drawing.Image)(resources.GetObject("BtClose.Image")));
+            this.BtClose.Location = new System.Drawing.Point(42, 623);
+            this.BtClose.Name = "BtClose";
+            this.BtClose.Size = new System.Drawing.Size(94, 26);
+            this.BtClose.TabIndex = 8;
+            this.BtClose.TabStop = false;
+            this.BtClose.Text = "Fechar";
+            this.BtClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtClose.UseVisualStyleBackColor = false;
+            
             // 
-            // button4
+            // Btnew
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(142, 623);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 26);
-            this.button4.TabIndex = 8;
-            this.button4.TabStop = false;
-            this.button4.Text = "Novo";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button1_Click);
+            this.Btnew.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Btnew.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnew.FlatAppearance.BorderSize = 0;
+            this.Btnew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btnew.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Btnew.Image = ((System.Drawing.Image)(resources.GetObject("Btnew.Image")));
+            this.Btnew.Location = new System.Drawing.Point(142, 623);
+            this.Btnew.Name = "Btnew";
+            this.Btnew.Size = new System.Drawing.Size(94, 26);
+            this.Btnew.TabIndex = 8;
+            this.Btnew.TabStop = false;
+            this.Btnew.Text = "Novo";
+            this.Btnew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Btnew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btnew.UseVisualStyleBackColor = false;
+            
             // 
-            // button5
+            // BtSave
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.Location = new System.Drawing.Point(594, 623);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 26);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "Salvar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button1_Click);
+            this.BtSave.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BtSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtSave.FlatAppearance.BorderSize = 0;
+            this.BtSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtSave.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtSave.Image = ((System.Drawing.Image)(resources.GetObject("BtSave.Image")));
+            this.BtSave.Location = new System.Drawing.Point(594, 623);
+            this.BtSave.Name = "BtSave";
+            this.BtSave.Size = new System.Drawing.Size(94, 26);
+            this.BtSave.TabIndex = 17;
+            this.BtSave.Text = "Salvar";
+            this.BtSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtSave.UseVisualStyleBackColor = false;
+            this.BtSave.Click += new System.EventHandler(this.BtSave_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(358, 585);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 56);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // FrmCadCliente
             // 
@@ -616,32 +627,33 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(734, 661);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.BtDeletePhoto);
+            this.Controls.Add(this.BtSave);
+            this.Controls.Add(this.Btnew);
+            this.Controls.Add(this.BtClose);
+            this.Controls.Add(this.BtAddImage);
+            this.Controls.Add(this.imgCliente);
+            this.Controls.Add(this.CbState);
+            this.Controls.Add(this.CbBairro);
+            this.Controls.Add(this.CbCity);
+            this.Controls.Add(this.CbAddress);
+            this.Controls.Add(this.CbStatus);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.maskedTextBox4);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtPhone);
+            this.Controls.Add(this.TxtCep);
+            this.Controls.Add(this.TxtDate);
+            this.Controls.Add(this.TxtDoc);
+            this.Controls.Add(this.CkSitua);
+            this.Controls.Add(this.OpOthers);
+            this.Controls.Add(this.OpFem);
+            this.Controls.Add(this.OpMan);
+            this.Controls.Add(this.TxtObs);
+            this.Controls.Add(this.TxtEmail);
+            this.Controls.Add(this.TxtNum);
+            this.Controls.Add(this.TxtRg);
+            this.Controls.Add(this.TxtName);
+            this.Controls.Add(this.TxtId);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label16);
@@ -671,7 +683,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCadCliente_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -694,35 +706,36 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.TextBox TxtId;
+        private System.Windows.Forms.TextBox TxtName;
+        private System.Windows.Forms.TextBox TxtRg;
+        private System.Windows.Forms.TextBox TxtNum;
+        private System.Windows.Forms.TextBox TxtEmail;
+        private System.Windows.Forms.TextBox TxtObs;
+        private System.Windows.Forms.RadioButton OpMan;
+        private System.Windows.Forms.RadioButton OpFem;
+        private System.Windows.Forms.RadioButton OpOthers;
+        private System.Windows.Forms.CheckBox CkSitua;
+        private System.Windows.Forms.MaskedTextBox TxtDoc;
+        private System.Windows.Forms.MaskedTextBox TxtDate;
+        private System.Windows.Forms.MaskedTextBox TxtCep;
+        private System.Windows.Forms.MaskedTextBox TxtPhone;
+        private System.Windows.Forms.RadioButton OpCpf;
+        private System.Windows.Forms.RadioButton OpCnpj;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox CbStatus;
+        private System.Windows.Forms.ComboBox CbState;
+        private System.Windows.Forms.ComboBox CbAddress;
+        private System.Windows.Forms.ComboBox CbBairro;
+        private System.Windows.Forms.ComboBox CbCity;
+        private System.Windows.Forms.PictureBox imgCliente;
+        private System.Windows.Forms.Button BtAddImage;
+        private System.Windows.Forms.Button BtDeletePhoto;
+        private System.Windows.Forms.Button BtClose;
+        private System.Windows.Forms.Button Btnew;
+        private System.Windows.Forms.Button BtSave;
+        private System.Windows.Forms.Button button6;
     }
 }
 
