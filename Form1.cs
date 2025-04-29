@@ -148,6 +148,7 @@ namespace Cadastro_De_Clientes
             if(OpCpf.Checked == false && OpCnpj.Checked == false)
             {
                 MessageBox.Show("Marque o tipo de documentação\rCPF ou CNPJ");
+                return true;
             }
 
             //Validar campo Documentação
@@ -166,6 +167,7 @@ namespace Cadastro_De_Clientes
             if(OpMan.Checked == false && OpFem.Checked == false && OpOthers.Checked == false )
             {
                 MessageBox.Show("Selecione o genero");
+                return true;
             }
 
             return false;
