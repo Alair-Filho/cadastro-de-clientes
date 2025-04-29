@@ -153,11 +153,20 @@ namespace Cadastro_De_Clientes
             //Validar campo Documentação
             if (TxtDoc.Text == "")
             {
-                MessageBox.Show("Campo documento é obrigatório");
+                if (OpCpf.Checked == true)
+                    MessageBox.Show("Digite o CPF");
+                else
+                    MessageBox.Show("Digite o CNPJ");
+
                 TxtDoc.Focus();
                 return true;
             }
 
+            //verifica marcacao do genero
+            if(OpMan.Checked == false && OpFem.Checked == false && OpOthers.Checked == false )
+            {
+                MessageBox.Show("Selecione o genero");
+            }
 
             return false;
         }

@@ -8,3 +8,7 @@
 # Ignorar pastas de build
 bin/
 obj/
+
+# Ignorar pacotes NuGet
+packages/
+*.nupkg
