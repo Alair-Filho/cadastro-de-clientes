@@ -73,7 +73,6 @@
             this.BtClose = new System.Windows.Forms.Button();
             this.Btnew = new System.Windows.Forms.Button();
             this.BtSave = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).BeginInit();
             this.SuspendLayout();
@@ -122,12 +121,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(378, 193);
+            this.label6.Location = new System.Drawing.Point(361, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 18);
             this.label6.TabIndex = 0;
             this.label6.Text = "Estado Civil";
-            
             // 
             // label7
             // 
@@ -148,7 +146,6 @@
             this.label8.Size = new System.Drawing.Size(72, 18);
             this.label8.TabIndex = 0;
             this.label8.Text = "Endereço";
-            
             // 
             // label9
             // 
@@ -159,7 +156,6 @@
             this.label9.Size = new System.Drawing.Size(123, 18);
             this.label9.TabIndex = 0;
             this.label9.Text = "Data Nascimento";
-            
             // 
             // label10
             // 
@@ -180,7 +176,6 @@
             this.label11.Size = new System.Drawing.Size(54, 18);
             this.label11.TabIndex = 0;
             this.label11.Text = "Cidade";
-            
             // 
             // label12
             // 
@@ -201,7 +196,6 @@
             this.label13.Size = new System.Drawing.Size(50, 18);
             this.label13.TabIndex = 0;
             this.label13.Text = "E-mail";
-            
             // 
             // label14
             // 
@@ -232,7 +226,6 @@
             this.label16.Size = new System.Drawing.Size(25, 18);
             this.label16.TabIndex = 0;
             this.label16.Text = "N°";
-            
             // 
             // TxtId
             // 
@@ -248,6 +241,7 @@
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(324, 24);
             this.TxtName.TabIndex = 0;
+            this.TxtName.TextChanged += new System.EventHandler(this.TxtName_TextChanged);
             // 
             // TxtRg
             // 
@@ -289,6 +283,7 @@
             this.OpMan.TabStop = true;
             this.OpMan.Text = "Masculino";
             this.OpMan.UseVisualStyleBackColor = false;
+            this.OpMan.CheckedChanged += new System.EventHandler(this.OpMan_CheckedChanged);
             // 
             // OpFem
             // 
@@ -300,7 +295,7 @@
             this.OpFem.TabIndex = 2;
             this.OpFem.Text = "Feminino";
             this.OpFem.UseVisualStyleBackColor = false;
-            
+            this.OpFem.CheckedChanged += new System.EventHandler(this.OpFem_CheckedChanged);
             // 
             // OpOthers
             // 
@@ -312,7 +307,7 @@
             this.OpOthers.TabIndex = 2;
             this.OpOthers.Text = "Outros";
             this.OpOthers.UseVisualStyleBackColor = false;
-            
+            this.OpOthers.CheckedChanged += new System.EventHandler(this.OpOthers_CheckedChanged);
             // 
             // CkSitua
             // 
@@ -331,11 +326,11 @@
             // TxtDoc
             // 
             this.TxtDoc.Location = new System.Drawing.Point(206, 139);
-            this.TxtDoc.Mask = "000,000,000-00";
             this.TxtDoc.Name = "TxtDoc";
             this.TxtDoc.Size = new System.Drawing.Size(136, 24);
             this.TxtDoc.TabIndex = 2;
             this.TxtDoc.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.TxtDoc.Validating += new System.ComponentModel.CancelEventHandler(this.TxtDoc_Validating);
             // 
             // TxtDate
             // 
@@ -353,6 +348,8 @@
             this.TxtCep.Name = "TxtCep";
             this.TxtCep.Size = new System.Drawing.Size(143, 24);
             this.TxtCep.TabIndex = 8;
+            this.TxtCep.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.TxtCep.Validating += new System.ComponentModel.CancelEventHandler(this.TxtCep_Validating);
             // 
             // TxtPhone
             // 
@@ -373,6 +370,7 @@
             this.OpCpf.TabStop = true;
             this.OpCpf.Text = "CPF";
             this.OpCpf.UseVisualStyleBackColor = false;
+            this.OpCpf.CheckedChanged += new System.EventHandler(this.OpCpf_CheckedChanged);
             // 
             // OpCnpj
             // 
@@ -384,6 +382,7 @@
             this.OpCnpj.TabIndex = 2;
             this.OpCnpj.Text = "CNPJ";
             this.OpCnpj.UseVisualStyleBackColor = false;
+            this.OpCnpj.CheckedChanged += new System.EventHandler(this.OpCnpj_CheckedChanged);
             // 
             // panel1
             // 
@@ -420,10 +419,12 @@
             "Viúvo(a)",
             "Separado(a)",
             "União estável"});
-            this.CbStatus.Location = new System.Drawing.Point(381, 214);
+            this.CbStatus.Location = new System.Drawing.Point(364, 214);
             this.CbStatus.Name = "CbStatus";
             this.CbStatus.Size = new System.Drawing.Size(172, 26);
             this.CbStatus.TabIndex = 6;
+            this.CbStatus.TextChanged += new System.EventHandler(this.CbStatus_TextChanged);
+            this.CbStatus.Validating += new System.ComponentModel.CancelEventHandler(this.CbStatus_Validating);
             // 
             // CbState
             // 
@@ -464,6 +465,7 @@
             this.CbState.Name = "CbState";
             this.CbState.Size = new System.Drawing.Size(143, 26);
             this.CbState.TabIndex = 13;
+            this.CbState.Validating += new System.ComponentModel.CancelEventHandler(this.CbState_Validating);
             // 
             // CbAddress
             // 
@@ -531,7 +533,6 @@
             this.BtAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtAddImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtAddImage.UseVisualStyleBackColor = false;
-            
             // 
             // BtDeletePhoto
             // 
@@ -549,7 +550,6 @@
             this.BtDeletePhoto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtDeletePhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtDeletePhoto.UseVisualStyleBackColor = false;
-            
             // 
             // BtClose
             // 
@@ -569,7 +569,7 @@
             this.BtClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtClose.UseVisualStyleBackColor = false;
-            
+            this.BtClose.Click += new System.EventHandler(this.BtClose_Click);
             // 
             // Btnew
             // 
@@ -589,7 +589,7 @@
             this.Btnew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Btnew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btnew.UseVisualStyleBackColor = false;
-            
+            this.Btnew.Click += new System.EventHandler(this.Btnew_Click);
             // 
             // BtSave
             // 
@@ -610,16 +610,6 @@
             this.BtSave.UseVisualStyleBackColor = false;
             this.BtSave.Click += new System.EventHandler(this.BtSave_Click);
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(358, 585);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 56);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // FrmCadCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -627,7 +617,6 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(734, 661);
-            this.Controls.Add(this.button6);
             this.Controls.Add(this.BtDeletePhoto);
             this.Controls.Add(this.BtSave);
             this.Controls.Add(this.Btnew);
@@ -735,7 +724,6 @@
         private System.Windows.Forms.Button BtClose;
         private System.Windows.Forms.Button Btnew;
         private System.Windows.Forms.Button BtSave;
-        private System.Windows.Forms.Button button6;
     }
 }
 
