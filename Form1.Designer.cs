@@ -67,12 +67,12 @@
             this.CbAddress = new System.Windows.Forms.ComboBox();
             this.CbBairro = new System.Windows.Forms.ComboBox();
             this.CbCity = new System.Windows.Forms.ComboBox();
-            this.imgCliente = new System.Windows.Forms.PictureBox();
-            this.BtAddImage = new System.Windows.Forms.Button();
             this.BtDeletePhoto = new System.Windows.Forms.Button();
-            this.BtClose = new System.Windows.Forms.Button();
-            this.Btnew = new System.Windows.Forms.Button();
             this.BtSave = new System.Windows.Forms.Button();
+            this.Btnew = new System.Windows.Forms.Button();
+            this.BtClose = new System.Windows.Forms.Button();
+            this.BtAddImage = new System.Windows.Forms.Button();
+            this.imgCliente = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).BeginInit();
             this.SuspendLayout();
@@ -231,9 +231,11 @@
             // 
             this.TxtId.Location = new System.Drawing.Point(206, 61);
             this.TxtId.Name = "TxtId";
+            this.TxtId.ReadOnly = true;
             this.TxtId.Size = new System.Drawing.Size(136, 24);
             this.TxtId.TabIndex = 1;
             this.TxtId.TabStop = false;
+            this.TxtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // TxtName
             // 
@@ -465,6 +467,7 @@
             this.CbState.Name = "CbState";
             this.CbState.Size = new System.Drawing.Size(143, 26);
             this.CbState.TabIndex = 13;
+            this.CbState.TextChanged += new System.EventHandler(this.CbState_TextChanged);
             this.CbState.Validating += new System.ComponentModel.CancelEventHandler(this.CbState_Validating);
             // 
             // CbAddress
@@ -478,6 +481,7 @@
             this.CbAddress.Name = "CbAddress";
             this.CbAddress.Size = new System.Drawing.Size(404, 26);
             this.CbAddress.TabIndex = 9;
+            this.CbAddress.TextChanged += new System.EventHandler(this.CbAddress_TextChanged);
             // 
             // CbBairro
             // 
@@ -490,6 +494,7 @@
             this.CbBairro.Name = "CbBairro";
             this.CbBairro.Size = new System.Drawing.Size(143, 26);
             this.CbBairro.TabIndex = 11;
+            this.CbBairro.TextChanged += new System.EventHandler(this.CbBairro_TextChanged);
             // 
             // CbCity
             // 
@@ -502,37 +507,7 @@
             this.CbCity.Name = "CbCity";
             this.CbCity.Size = new System.Drawing.Size(482, 26);
             this.CbCity.TabIndex = 12;
-            // 
-            // imgCliente
-            // 
-            this.imgCliente.BackColor = System.Drawing.Color.Transparent;
-            this.imgCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgCliente.Image = ((System.Drawing.Image)(resources.GetObject("imgCliente.Image")));
-            this.imgCliente.Location = new System.Drawing.Point(42, 40);
-            this.imgCliente.Name = "imgCliente";
-            this.imgCliente.Size = new System.Drawing.Size(143, 168);
-            this.imgCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgCliente.TabIndex = 7;
-            this.imgCliente.TabStop = false;
-            // 
-            // BtAddImage
-            // 
-            this.BtAddImage.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.BtAddImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtAddImage.FlatAppearance.BorderSize = 0;
-            this.BtAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtAddImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtAddImage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtAddImage.Image = ((System.Drawing.Image)(resources.GetObject("BtAddImage.Image")));
-            this.BtAddImage.Location = new System.Drawing.Point(42, 214);
-            this.BtAddImage.Name = "BtAddImage";
-            this.BtAddImage.Size = new System.Drawing.Size(94, 26);
-            this.BtAddImage.TabIndex = 8;
-            this.BtAddImage.TabStop = false;
-            this.BtAddImage.Text = "Imagem";
-            this.BtAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtAddImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtAddImage.UseVisualStyleBackColor = false;
+            this.CbCity.TextChanged += new System.EventHandler(this.CbCity_TextChanged);
             // 
             // BtDeletePhoto
             // 
@@ -550,26 +525,26 @@
             this.BtDeletePhoto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtDeletePhoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtDeletePhoto.UseVisualStyleBackColor = false;
+            this.BtDeletePhoto.Click += new System.EventHandler(this.BtDeletePhoto_Click);
             // 
-            // BtClose
+            // BtSave
             // 
-            this.BtClose.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.BtClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtClose.FlatAppearance.BorderSize = 0;
-            this.BtClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtClose.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtClose.Image = ((System.Drawing.Image)(resources.GetObject("BtClose.Image")));
-            this.BtClose.Location = new System.Drawing.Point(42, 623);
-            this.BtClose.Name = "BtClose";
-            this.BtClose.Size = new System.Drawing.Size(94, 26);
-            this.BtClose.TabIndex = 8;
-            this.BtClose.TabStop = false;
-            this.BtClose.Text = "Fechar";
-            this.BtClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtClose.UseVisualStyleBackColor = false;
-            this.BtClose.Click += new System.EventHandler(this.BtClose_Click);
+            this.BtSave.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BtSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtSave.FlatAppearance.BorderSize = 0;
+            this.BtSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtSave.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtSave.Image = ((System.Drawing.Image)(resources.GetObject("BtSave.Image")));
+            this.BtSave.Location = new System.Drawing.Point(570, 623);
+            this.BtSave.Name = "BtSave";
+            this.BtSave.Size = new System.Drawing.Size(118, 26);
+            this.BtSave.TabIndex = 17;
+            this.BtSave.Text = "Salvar";
+            this.BtSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtSave.UseVisualStyleBackColor = false;
+            this.BtSave.Click += new System.EventHandler(this.BtSave_Click);
             // 
             // Btnew
             // 
@@ -591,24 +566,57 @@
             this.Btnew.UseVisualStyleBackColor = false;
             this.Btnew.Click += new System.EventHandler(this.Btnew_Click);
             // 
-            // BtSave
+            // BtClose
             // 
-            this.BtSave.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.BtSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtSave.FlatAppearance.BorderSize = 0;
-            this.BtSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtSave.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BtSave.Image = ((System.Drawing.Image)(resources.GetObject("BtSave.Image")));
-            this.BtSave.Location = new System.Drawing.Point(594, 623);
-            this.BtSave.Name = "BtSave";
-            this.BtSave.Size = new System.Drawing.Size(94, 26);
-            this.BtSave.TabIndex = 17;
-            this.BtSave.Text = "Salvar";
-            this.BtSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtSave.UseVisualStyleBackColor = false;
-            this.BtSave.Click += new System.EventHandler(this.BtSave_Click);
+            this.BtClose.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtClose.FlatAppearance.BorderSize = 0;
+            this.BtClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtClose.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtClose.Image = ((System.Drawing.Image)(resources.GetObject("BtClose.Image")));
+            this.BtClose.Location = new System.Drawing.Point(42, 623);
+            this.BtClose.Name = "BtClose";
+            this.BtClose.Size = new System.Drawing.Size(94, 26);
+            this.BtClose.TabIndex = 8;
+            this.BtClose.TabStop = false;
+            this.BtClose.Text = "Fechar";
+            this.BtClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtClose.UseVisualStyleBackColor = false;
+            this.BtClose.Click += new System.EventHandler(this.BtClose_Click);
+            // 
+            // BtAddImage
+            // 
+            this.BtAddImage.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BtAddImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtAddImage.FlatAppearance.BorderSize = 0;
+            this.BtAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtAddImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtAddImage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BtAddImage.Image = ((System.Drawing.Image)(resources.GetObject("BtAddImage.Image")));
+            this.BtAddImage.Location = new System.Drawing.Point(42, 214);
+            this.BtAddImage.Name = "BtAddImage";
+            this.BtAddImage.Size = new System.Drawing.Size(94, 26);
+            this.BtAddImage.TabIndex = 8;
+            this.BtAddImage.TabStop = false;
+            this.BtAddImage.Text = "Imagem";
+            this.BtAddImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtAddImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtAddImage.UseVisualStyleBackColor = false;
+            this.BtAddImage.Click += new System.EventHandler(this.BtAddImage_Click);
+            // 
+            // imgCliente
+            // 
+            this.imgCliente.BackColor = System.Drawing.Color.Transparent;
+            this.imgCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgCliente.Image = global::Cadastro_De_Clientes.Properties.Resources.avatar_icon;
+            this.imgCliente.Location = new System.Drawing.Point(42, 40);
+            this.imgCliente.Name = "imgCliente";
+            this.imgCliente.Size = new System.Drawing.Size(143, 168);
+            this.imgCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgCliente.TabIndex = 7;
+            this.imgCliente.TabStop = false;
             // 
             // FrmCadCliente
             // 
@@ -669,6 +677,7 @@
             this.Name = "FrmCadCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro De Clientes";
+            this.Load += new System.EventHandler(this.FrmCadCliente_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCadCliente_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

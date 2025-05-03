@@ -63,6 +63,16 @@ namespace Cadastro_De_Clientes.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avatar_icon {
+            get {
+                object obj = ResourceManager.GetObject("avatar-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Captura_de_tela_2025_04_23_174547 {
             get {
                 object obj = ResourceManager.GetObject("Captura de tela 2025-04-23 174547", resourceCulture);

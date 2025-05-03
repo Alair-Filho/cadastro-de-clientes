@@ -12,3 +12,6 @@ obj/
 # Ignorar pacotes NuGet
 packages/
 *.nupkg
+
+# Ignorar configuração local com senha real
+App.config
