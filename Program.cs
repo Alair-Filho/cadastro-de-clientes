@@ -16,7 +16,7 @@ namespace Cadastro_De_Clientes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCadCliente());
+            Application.Run(new FormMenuClientes());
         }
     }
 }

@@ -40,13 +40,13 @@ namespace Cadastro_De_Clientes
 
         public static void PriMaiuscula(Control ctr)
         {
+            if (string.IsNullOrWhiteSpace(ctr.Text)) return;
+
             TextInfo textInfo = new CultureInfo("pt-BR", false).TextInfo;
 
+            string textoNome = ctr.Text.Trim();
 
-
-            string textoNome = ctr.Text;
-
-            textoNome = textInfo.ToTitleCase(textoNome);
+            textoNome = textInfo.ToTitleCase(textoNome.ToLower());
 
             textoNome = textoNome.Replace(" Das ", " das ")
                                  .Replace(" Da ", " da ")
@@ -57,12 +57,11 @@ namespace Cadastro_De_Clientes
 
             ctr.Text = textoNome;
 
-            if(ctr is TextBox txt)
+            if (ctr is TextBox txt)
             {
                 txt.SelectionStart = txt.TextLength;
             }
-            
-            else if(ctr is ComboBox cb)
+            else if (ctr is ComboBox cb)
             {
                 cb.SelectionStart = cb.Text.Length;
             }

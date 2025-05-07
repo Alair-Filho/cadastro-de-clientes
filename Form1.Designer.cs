@@ -474,6 +474,7 @@
             // 
             this.CbAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CbAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbAddress.DisplayMember = "endereco";
             this.CbAddress.DropDownHeight = 100;
             this.CbAddress.FormattingEnabled = true;
             this.CbAddress.IntegralHeight = false;
@@ -487,6 +488,7 @@
             // 
             this.CbBairro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CbBairro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbBairro.DisplayMember = "bairro";
             this.CbBairro.DropDownHeight = 100;
             this.CbBairro.FormattingEnabled = true;
             this.CbBairro.IntegralHeight = false;
@@ -500,6 +502,7 @@
             // 
             this.CbCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CbCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CbCity.DisplayMember = "cidade";
             this.CbCity.DropDownHeight = 100;
             this.CbCity.FormattingEnabled = true;
             this.CbCity.IntegralHeight = false;
@@ -623,6 +626,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
+            this.BackgroundImage = global::Cadastro_De_Clientes.Properties.Resources.Captura_de_tela_2025_04_23_174547;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(734, 661);
             this.Controls.Add(this.BtDeletePhoto);
@@ -667,6 +671,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -704,7 +709,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox TxtId;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.TextBox TxtRg;
         private System.Windows.Forms.TextBox TxtNum;
@@ -733,6 +737,7 @@
         private System.Windows.Forms.Button BtClose;
         private System.Windows.Forms.Button Btnew;
         private System.Windows.Forms.Button BtSave;
+        public System.Windows.Forms.TextBox TxtId;
     }
 }
 

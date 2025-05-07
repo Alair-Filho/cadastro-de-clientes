@@ -16,16 +16,16 @@ using System.Configuration;
 
 namespace Cadastro_De_Clientes
 {
-    public partial class FrmCadCliente: Form
+    public partial class FrmCadCliente : Form
     {
         public FrmCadCliente()
         {
             InitializeComponent();
         }
-        
+
         private void FrmCadCliente_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
                 e.SuppressKeyPress = true;
@@ -58,12 +58,12 @@ namespace Cadastro_De_Clientes
                     cmd.Parameters.AddWithValue("@email", TxtEmail.Text);
                     cmd.Parameters.AddWithValue("@telefone", TxtPhone.Text);
 
-                    if(TxtDate.Text == "  /  /")
+                    if (TxtDate.Text == "  /  /")
                     {
                         cmd.Parameters.AddWithValue("@data_nascimento", DBNull.Value);
                     }
-                    else 
-                    { 
+                    else
+                    {
                         cmd.Parameters.AddWithValue("@data_nascimento", Convert.ToDateTime(TxtDate.Text));
                     }
 
@@ -71,7 +71,7 @@ namespace Cadastro_De_Clientes
                     {
                         cmd.Parameters.AddWithValue("@genero", "Masculino");
                     }
-                    else if(OpFem.Checked == true)
+                    else if (OpFem.Checked == true)
                     {
                         cmd.Parameters.AddWithValue("@genero", "Feminino");
                     }
@@ -90,7 +90,7 @@ namespace Cadastro_De_Clientes
                     cmd.Parameters.AddWithValue("@estado", CbState.Text);
                     cmd.Parameters.AddWithValue("@observacao", TxtObs.Text);
 
-                    if(CkSitua.Checked == true)
+                    if (CkSitua.Checked == true)
                     {
                         cmd.Parameters.AddWithValue("@situacao", "Ativo");
                     }
@@ -98,15 +98,15 @@ namespace Cadastro_De_Clientes
                     {
                         cmd.Parameters.AddWithValue("@situacao", "Cancelado");
                     }
-                   
+
                     cmd.ExecuteNonQuery();
 
-                    if(TxtId.Text == "")
+                    if (TxtId.Text == "")
                     {
                         cmd.CommandText = "SELECT @@IDENTITY";
                         TxtId.Text = cmd.ExecuteScalar().ToString();
                     }
-                    
+
                 }
 
                 Funcoes.MsgAviso("Cadastro realizado com sucesso!");
@@ -125,7 +125,7 @@ namespace Cadastro_De_Clientes
         private bool Validacao()
         {
             //Validar campo nome
-            if(TxtName.Text == "")
+            if (TxtName.Text == "")
             {
                 Funcoes.MsgAlerta("Campo nome é obrigatório");
                 TxtName.Focus();
@@ -133,7 +133,7 @@ namespace Cadastro_De_Clientes
             }
 
             //Validar campo CPF ou CNPJ
-            if(OpCpf.Checked == false && OpCnpj.Checked == false)
+            if (OpCpf.Checked == false && OpCnpj.Checked == false)
             {
                 Funcoes.MsgAlerta("Marque o tipo de documentação\rCPF ou CNPJ");
                 return true;
@@ -152,24 +152,24 @@ namespace Cadastro_De_Clientes
             }
 
             //verifica marcacao do genero
-            if(OpMan.Checked == false && OpFem.Checked == false && OpOthers.Checked == false )
+            if (OpMan.Checked == false && OpFem.Checked == false && OpOthers.Checked == false)
             {
                 Funcoes.MsgAlerta("Selecione o genero");
                 return true;
             }
 
             //Validar Data
-            if(TxtDate.Text != "  /  /") 
-            { 
-                 try
-                 {
-                 Convert.ToDateTime(TxtDate.Text);
-                 }
-                 catch (Exception)
-                 {
-                 Funcoes.MsgErro("Data de nascimento inválida!");
-                 return true; 
-                 }
+            if (TxtDate.Text != "  /  /")
+            {
+                try
+                {
+                    Convert.ToDateTime(TxtDate.Text);
+                }
+                catch (Exception)
+                {
+                    Funcoes.MsgErro("Data de nascimento inválida!");
+                    return true;
+                }
             }
 
             return false;
@@ -177,7 +177,7 @@ namespace Cadastro_De_Clientes
 
         private void Btnew_Click(object sender, EventArgs e)
         {
-            if(Funcoes.Pergunta("Deseja Realmente Limpar todos os Campos?") == false)
+            if (Funcoes.Pergunta("Deseja Realmente Limpar todos os Campos?") == false)
             {
                 return;
             }
@@ -223,7 +223,7 @@ namespace Cadastro_De_Clientes
 
         private void OpCpf_CheckedChanged(object sender, EventArgs e)
         {
-            if(OpCpf.Checked == true)
+            if (OpCpf.Checked == true)
             {
                 TxtDoc.Mask = "000,000,000-00";
                 TxtDoc.Focus();
@@ -232,7 +232,7 @@ namespace Cadastro_De_Clientes
 
         private void OpCnpj_CheckedChanged(object sender, EventArgs e)
         {
-            if(OpCnpj.Checked == true)
+            if (OpCnpj.Checked == true)
             {
                 TxtDoc.Mask = "00,000,000/0000-00";
                 TxtDoc.Focus();
@@ -256,12 +256,12 @@ namespace Cadastro_De_Clientes
 
         private void CbStatus_Validating(object sender, CancelEventArgs e)
         {
-            if(CbStatus.Text == "")
+            if (CbStatus.Text == "")
             {
                 return;
             }
 
-            if(CbStatus.SelectedIndex == -1)
+            if (CbStatus.SelectedIndex == -1)
             {
                 Funcoes.MsgErro("Selecione um estado civil válido!");
                 e.Cancel = true;
@@ -281,11 +281,18 @@ namespace Cadastro_De_Clientes
                 e.Cancel = true;
             }
         }
+        private bool _isUpdatingText = false;
 
         private void TxtName_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.PriMaiuscula(TxtName);
+            if (!_isUpdatingText)
+            {
+                _isUpdatingText = true;
+                Funcoes.PriMaiuscula(TxtName);
+                _isUpdatingText = false;
+            }
         }
+                
 
         private void CbStatus_TextChanged(object sender, EventArgs e)
         {
@@ -305,12 +312,12 @@ namespace Cadastro_De_Clientes
         private void TxtCep_Validating(object sender, CancelEventArgs e)
         {
 
-            if(TxtCep.Text.Length == 0)
+            if (TxtCep.Text.Length == 0)
             {
                 return;
             }
 
-            if(TxtCep.Text.Length < 8)
+            if (TxtCep.Text.Length < 8)
             {
                 Funcoes.MsgErro("CEP inclompleto!");
                 e.Cancel = true;
@@ -324,41 +331,61 @@ namespace Cadastro_De_Clientes
                 return;
             }
 
-            if (OpCpf.Checked == true && TxtDoc.Text.Replace(" ","").Length < 11)
+            if (OpCpf.Checked == true && TxtDoc.Text.Replace(" ", "").Length < 11)
             {
                 Funcoes.MsgErro("CPF incompleto!");
                 e.Cancel = true;
             }
-            if(OpCnpj.Checked == true && TxtDoc.Text.Replace(" ", "").Length < 14)
+            if (OpCnpj.Checked == true && TxtDoc.Text.Replace(" ", "").Length < 14)
             {
-               Funcoes.MsgErro("CNPJ incompleto!");
+                Funcoes.MsgErro("CNPJ incompleto!");
                 e.Cancel = true;
             }
         }
 
         private void CbAddress_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.PriMaiuscula(CbAddress);
+            if (!_isUpdatingText)
+            {
+                _isUpdatingText = true;
+                Funcoes.PriMaiuscula(CbAddress);
+                _isUpdatingText = false;
+            }
         }
 
         private void CbBairro_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.PriMaiuscula(CbBairro);
+            if (!_isUpdatingText)
+            {
+                _isUpdatingText = true;
+                Funcoes.PriMaiuscula(CbBairro);
+                _isUpdatingText = false;
+            }
         }
 
         private void CbCity_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.PriMaiuscula(CbCity);
+            if (!_isUpdatingText)
+            {
+                _isUpdatingText = true;
+                Funcoes.PriMaiuscula(CbCity);
+                _isUpdatingText = false;
+            }
         }
 
         private void CbState_TextChanged(object sender, EventArgs e)
         {
-            Funcoes.PriMaiuscula(CbState);
+            if (!_isUpdatingText)
+            {
+                _isUpdatingText = true;
+                Funcoes.PriMaiuscula(CbState);
+                _isUpdatingText = false;
+            }
         }
 
         private void BtAddImage_Click(object sender, EventArgs e)
         {
-            if(TxtId.Text == "")
+            if (TxtId.Text == "")
             {
                 Funcoes.MsgErro("Salve os dados do cliente primeiro");
                 return;
@@ -371,26 +398,26 @@ namespace Cadastro_De_Clientes
             {
                 imgCliente.Image = Image.FromFile(caixa.FileName);
 
-                File.Copy(caixa.FileName,PastaFotos + TxtId.Text + ".png");
+                File.Copy(caixa.FileName, PastaFotos + TxtId.Text + ".png");
             }
 
-            
+
         }
 
         private void BtDeletePhoto_Click(object sender, EventArgs e)
         {
-            if(TxtId.Text == "")
+            if (TxtId.Text == "")
             {
                 Funcoes.MsgErro("Nenhuma imagem enontrada para Remoção");
                 return;
             }
-            if(File.Exists(PastaFotos + TxtId.Text + ".png") == false)
+            if (File.Exists(PastaFotos + TxtId.Text + ".png") == false)
             {
                 Funcoes.MsgErro("Nenhuma imagem enontrada para Remoção");
                 return;
             }
 
-            if(Funcoes.Pergunta("Deseja realmente remover a foto de perfil?") == false)
+            if (Funcoes.Pergunta("Deseja realmente remover a foto de perfil?") == false)
             {
                 return;
             }
@@ -402,82 +429,73 @@ namespace Cadastro_De_Clientes
 
         private void FrmCadCliente_Load(object sender, EventArgs e)
         {
+            BancoDeDados.CarregarComboBox(CbAddress, "clientes", "endereco");
+            BancoDeDados.CarregarComboBox(CbBairro, "clientes", "bairro");
+            BancoDeDados.CarregarComboBox(CbCity, "clientes", "cidade");
+
             if (TxtId.Text == "")
                 return;
 
             BtSave.Text = "Atualizar";
 
-            using(MySqlConnection Conexao = new MySqlConnection(conexaoString))
+            DataTable dt = BancoDeDados.BuscaSQL($"SELECT * FROM clientes WHERE id = {TxtId.Text}");
+
+            TxtName.Text = dt.Rows[0]["nome"].ToString();
+
+            if (dt.Rows[0]["documento"].ToString().Length == 11)
             {
-                Conexao.Open();
-                using(MySqlCommand cmd = Conexao.CreateCommand())
-                {
-                    cmd.CommandText = $"SELECT * FROM clientes WHERE id = {TxtId.Text}";
-
-                    DataTable dt = new DataTable();
-
-                    using (MySqlDataAdapter DadosAdap = new MySqlDataAdapter(cmd))
-                    {
-                        DadosAdap.Fill(dt);
-
-                        TxtName.Text = dt.Rows[0]["nome"].ToString();
-
-                        if (dt.Rows[0]["documento"].ToString().Length == 11)
-                        {
-                            OpCpf.Checked = true;
-                        }
-                        else
-                        {
-                            OpCnpj.Checked = true;
-                        }
-                        TxtDoc.Text = dt.Rows[0]["documento"].ToString();
-
-                        TxtEmail.Text = dt.Rows[0]["email"].ToString();
-                        TxtPhone.Text = dt.Rows[0]["telefone"].ToString();
-                        TxtDate.Text = dt.Rows[0]["data_nascimento"].ToString();
-
-                        if (dt.Rows[0]["genero"].ToString() == "Masculino")
-                        {
-                            OpMan.Checked = true;
-                        }
-                        else if (dt.Rows[0]["genero"].ToString() == "Feminino")
-                        {
-                            OpFem.Checked = true;
-                        }
-                        else
-                        {
-                            OpOthers.Checked = true;
-                        }
-
-                        TxtRg.Text = dt.Rows[0]["rg"].ToString();
-                        CbStatus.Text = dt.Rows[0]["estado_civil"].ToString();
-                        TxtCep.Text = dt.Rows[0]["cep"].ToString();
-                        CbAddress.Text = dt.Rows[0]["endereco"].ToString();
-                        TxtNum.Text = dt.Rows[0]["numero_casa"].ToString();
-                        CbBairro.Text = dt.Rows[0]["bairro"].ToString();
-                        CbCity.Text = dt.Rows[0]["cidade"].ToString();
-                        TxtObs.Text = dt.Rows[0]["observacao"].ToString();
-
-                        if (dt.Rows[0]["situacao"].ToString() == "Ativo")
-                        {
-                            CkSitua.Checked = true;
-                        }
-                        else
-                        {
-                            CkSitua.Checked = false;
-                        }
-
-                        if (File.Exists(PastaFotos + TxtId.Text + ".png"))
-                        {
-                            imgCliente.Image = Image.FromFile(PastaFotos + TxtId.Text + ".png");
-                        }
-                        else
-                        {
-                            imgCliente.Image = Properties.Resources.avatar_icon;
-                        }
-                    }
-                }
+                OpCpf.Checked = true;
             }
+            else
+            {
+                OpCnpj.Checked = true;
+            }
+            TxtDoc.Text = dt.Rows[0]["documento"].ToString();
+
+            TxtEmail.Text = dt.Rows[0]["email"].ToString();
+            TxtPhone.Text = dt.Rows[0]["telefone"].ToString();
+            TxtDate.Text = dt.Rows[0]["data_nascimento"].ToString();
+
+            if (dt.Rows[0]["genero"].ToString() == "Masculino")
+            {
+                OpMan.Checked = true;
+            }
+            else if (dt.Rows[0]["genero"].ToString() == "Feminino")
+            {
+                OpFem.Checked = true;
+            }
+            else
+            {
+                OpOthers.Checked = true;
+            }
+
+            TxtRg.Text = dt.Rows[0]["rg"].ToString();
+            CbStatus.Text = dt.Rows[0]["estado_civil"].ToString();
+            TxtCep.Text = dt.Rows[0]["cep"].ToString();
+            CbAddress.Text = dt.Rows[0]["endereco"].ToString();
+            TxtNum.Text = dt.Rows[0]["numero_casa"].ToString();
+            CbBairro.Text = dt.Rows[0]["bairro"].ToString();
+            CbCity.Text = dt.Rows[0]["cidade"].ToString();
+            TxtObs.Text = dt.Rows[0]["observacao"].ToString();
+
+            if (dt.Rows[0]["situacao"].ToString() == "Ativo")
+            {
+                CkSitua.Checked = true;
+            }
+            else
+            {
+                CkSitua.Checked = false;
+            }
+
+            if (File.Exists(PastaFotos + TxtId.Text + ".png"))
+            {
+                imgCliente.Image = Image.FromFile(PastaFotos + TxtId.Text + ".png");
+            }
+            else
+            {
+                imgCliente.Image = Properties.Resources.avatar_icon;
+            }
+
         }
     }
 }
