@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using System.Globalization;
 using System.IO;
-using System.CodeDom;
-using System.Configuration;
+using System.Net.Http;
+using System.Windows.Forms;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 
 namespace Cadastro_De_Clientes
@@ -321,7 +319,48 @@ namespace Cadastro_De_Clientes
             {
                 Funcoes.MsgErro("CEP inclompleto!");
                 e.Cancel = true;
+                return;
             }
+
+            LblAvisos.Visible = true;
+            Application.DoEvents();
+
+            using (HttpClient apiCep = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage resposta = apiCep.GetAsync($"https://viacep.com.br/ws/{TxtCep.Text}/json/").Result;
+
+                    dynamic cepJson = JsonConvert.DeserializeObject(resposta.Content.ReadAsStringAsync().Result);
+
+                    if (cepJson.erro == null)
+                    {
+                        CbAddress.Text = cepJson.logradouro.ToString();
+                        CbBairro.Text = cepJson.bairro.ToString();
+                        CbCity.Text = cepJson.localidade.ToString();
+                        CbState.Text = cepJson.uf.ToString();
+
+                        foreach (var estados in CbState.Items)
+                        {
+                            if (estados.ToString().Contains($"({CbState.Text})"))
+                            {
+                                CbState.Text = estados.ToString();
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Funcoes.MsgErro("CEP não encontrado!");
+                    }
+                }
+                catch (Exception)
+                {
+
+                    Funcoes.MsgErro("Não foi possivel realizar a consulta\nVerifique sua conexão com a internet");
+                }
+            }
+            LblAvisos.Visible = false;
         }
 
         private void TxtDoc_Validating(object sender, CancelEventArgs e)
@@ -489,7 +528,7 @@ namespace Cadastro_De_Clientes
 
             if (File.Exists(PastaFotos + TxtId.Text + ".png"))
             {
-                imgCliente.Image = Image.FromFile(PastaFotos + TxtId.Text + ".png");
+                imgCliente.LoadAsync(PastaFotos + TxtId.Text + ".png");
             }
             else
             {

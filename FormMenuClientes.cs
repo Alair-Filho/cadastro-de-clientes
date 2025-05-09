@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using System.Configuration;
 using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Cadastro_De_Clientes
 {
@@ -19,12 +13,18 @@ namespace Cadastro_De_Clientes
         public FormMenuClientes()
         {
             InitializeComponent();
+            typeof(DataGridView)
+                .InvokeMember("DoubleBuffered",
+                BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                null, dgLista, new object[] { true });
         }
         private void Ações_Enter(object sender, EventArgs e)
         {
 
         }
         string PastaFotos = AppDomain.CurrentDomain.BaseDirectory + "/Fotos/";
+        private Dictionary<string, Image> cacheFotos = new Dictionary<string, Image>();
+
 
         private void BtAdd_Click(object sender, EventArgs e)
         {
@@ -51,14 +51,25 @@ namespace Cadastro_De_Clientes
                     linha.DefaultCellStyle.ForeColor = Color.Crimson;
                 }
 
-                if (File.Exists(PastaFotos + linha.Cells["id"].Value.ToString() + ".png"))
+                string idCliente = linha.Cells["id"].Value.ToString();
+                string caminhoFoto = PastaFotos + idCliente + ".png";
+
+                if (File.Exists(caminhoFoto))
                 {
-                    linha.Cells["foto"].Value = Image.FromFile(PastaFotos + linha.Cells["id"].Value.ToString() + ".png");
+                    if (!cacheFotos.ContainsKey(idCliente))
+                    {
+                        using (var imgTemp = Image.FromFile(caminhoFoto))
+                        {
+                            cacheFotos[idCliente] = new Bitmap(imgTemp); 
+                        }
+                    }
+                    linha.Cells["foto"].Value = cacheFotos[idCliente];
                 }
                 else
                 {
                     linha.Cells["foto"].Value = Properties.Resources.avatar_icon;
                 }
+
             }
             dgLista.ClearSelection();
             BtEdit.Enabled = false;
@@ -88,6 +99,17 @@ namespace Cadastro_De_Clientes
             dgLista.DataSource = BancoDeDados.BuscaSQL("SELECT * FROM clientes WHERE 1 " + GerarCriterios());
 
             ReorganizarDataGrid();
+
+            Rodape();
+
+            if (dgLista.RowCount == 0)
+            {
+                LblNadaEncontrado.Visible = true;
+            }
+            else
+            {
+                LblNadaEncontrado.Visible = false;
+            }
         }
 
         private void PesqId_TextChanged(object sender, EventArgs e)
@@ -100,29 +122,60 @@ namespace Cadastro_De_Clientes
             string criterio = "";
             if (PesqId.Text != string.Empty)
             {
-                criterio += $" AND id = {PesqId.Text} " ;
+                criterio += $" AND id = {PesqId.Text} ";
             }
 
             if (PesqNome.Text != string.Empty)
             {
                 criterio += $" AND nome LIKE '%{PesqNome.Text}%' ";
             }
-            
-            if(PesqDocumento.Text != string.Empty)
+
+            if (PesqDocumento.Text != string.Empty)
             {
                 criterio += $" AND documento LIKE '%{PesqDocumento.Text}%' ";
             }
 
-            if(PesqGenero.Text != string.Empty)
+            if (PesqGenero.Text != string.Empty)
             {
                 criterio += $" AND genero = '{PesqGenero.Text}' ";
             }
 
-            if(PesqEstadoCivil.Text != string.Empty)
+            if (PesqEstadoCivil.Text != string.Empty)
             {
                 criterio += $" AND estado_civil = '{PesqEstadoCivil.Text}' ";
             }
 
+            if (PesqEndereco.Text != string.Empty)
+            {
+                string enderecos = PesqEndereco.Text;
+
+                criterio += $" AND (cep LIKE '%{enderecos}%' " +
+                   $"OR endereco LIKE '%{enderecos}%' " +
+                   $"OR numero_casa LIKE '%{enderecos}%' " +
+                   $"OR bairro LIKE '%{enderecos}%' " +
+                   $"OR cidade LIKE '%{enderecos}%' " +
+                   $"OR estado LIKE '%{enderecos}%')";
+            }
+
+            try
+            {
+                DateTime dataNasc = Convert.ToDateTime(PesqDtNasc.Text);
+                criterio += $" AND data_nascimento = '{dataNasc:yyy-MM-dd}'";
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+            if (PesqAtivo.Checked == true)
+            {
+                criterio += " AND situacao = 'Ativo' ";
+            }
+            else if (PesqCancelado.Checked == true)
+            {
+                criterio += " AND situacao = 'Cancelado' ";
+            }
             return criterio;
         }
 
@@ -134,6 +187,48 @@ namespace Cadastro_De_Clientes
         private void PesqDocumento_TextChanged(object sender, EventArgs e)
         {
             BuscarClientes();
+        }
+
+        private void PesqTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PesqTodos.Checked == true)
+            {
+
+                BuscarClientes();
+            }
+        }
+
+        private void PesqAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PesqAtivo.Checked == true)
+            {
+                BuscarClientes();
+            }
+        }
+        private void PesqCancelado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PesqCancelado.Checked == true)
+            {
+                BuscarClientes();
+            }
+        }
+
+        private void Rodape()
+        {
+            LblTotalLocalizado.Text = $"Total Localizado: {dgLista.RowCount}";
+
+            int contador = 0;
+            foreach (DataGridViewRow linha in dgLista.Rows)
+            {
+                if (linha.Cells["situacao"].Value.ToString() == "Cancelado")
+                {
+                    contador++;
+                }
+            }
+
+            LblCancelados.Text = $"Total Cancelados: {contador}";
+
+            LblAtivos.Text = $"Total Ativos: {(dgLista.Rows.Count - contador)}";
         }
     }
 }

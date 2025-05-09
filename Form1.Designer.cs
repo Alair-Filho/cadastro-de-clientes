@@ -73,6 +73,7 @@
             this.BtClose = new System.Windows.Forms.Button();
             this.BtAddImage = new System.Windows.Forms.Button();
             this.imgCliente = new System.Windows.Forms.PictureBox();
+            this.LblAvisos = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgCliente)).BeginInit();
             this.SuspendLayout();
@@ -171,7 +172,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Location = new System.Drawing.Point(203, 327);
+            this.label11.Location = new System.Drawing.Point(203, 340);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 18);
             this.label11.TabIndex = 0;
@@ -436,33 +437,33 @@
             this.CbState.FormattingEnabled = true;
             this.CbState.IntegralHeight = false;
             this.CbState.Items.AddRange(new object[] {
-            "Acre",
-            "Alagoas",
-            "Amapá",
-            "Amazonas",
-            "Bahia",
-            "Ceará",
-            "Distrito Federal",
-            "Espírito Santo",
-            "Goiás",
-            "Maranhão",
-            "Mato Grosso",
-            "Mato Grosso do Sul",
-            "Minas Gerais",
-            "Pará",
-            "Paraíba",
-            "Paraná",
-            "Pernambuco",
-            "Piauí",
-            "Rio de Janeiro",
-            "Rio Grande do Norte",
-            "Rio Grande do Sul",
-            "Rondônia",
-            "Roraima",
-            "Santa Catarina",
-            "São Paulo",
-            "Sergipe",
-            "Tocantins"});
+            "Acre (AC)  ",
+            "Alagoas (AL)  ",
+            "Amapá (AP)  ",
+            "Amazonas (AM)  ",
+            "Bahia (BA)  ",
+            "Ceará (CE)  ",
+            "Distrito Federal (DF)  ",
+            "Espírito Santo (ES)  ",
+            "Goiás (GO)  ",
+            "Maranhão (MA)  ",
+            "Mato Grosso (MT)  ",
+            "Mato Grosso do Sul (MS)  ",
+            "Minas Gerais (MG)  ",
+            "Pará (PA)  ",
+            "Paraíba (PB)  ",
+            "Paraná (PR)  ",
+            "Pernambuco (PE)  ",
+            "Piauí (PI)  ",
+            "Rio de Janeiro (RJ)  ",
+            "Rio Grande do Norte (RN)  ",
+            "Rio Grande do Sul (RS)  ",
+            "Rondônia (RO)  ",
+            "Roraima (RR)  ",
+            "Santa Catarina (SC)  ",
+            "São Paulo (Sp)  ",
+            "Sergipe (SE)  ",
+            "Tocantins (TO)"});
             this.CbState.Location = new System.Drawing.Point(42, 429);
             this.CbState.Name = "CbState";
             this.CbState.Size = new System.Drawing.Size(143, 26);
@@ -621,6 +622,18 @@
             this.imgCliente.TabIndex = 7;
             this.imgCliente.TabStop = false;
             // 
+            // LblAvisos
+            // 
+            this.LblAvisos.AutoSize = true;
+            this.LblAvisos.BackColor = System.Drawing.Color.Transparent;
+            this.LblAvisos.ForeColor = System.Drawing.Color.Crimson;
+            this.LblAvisos.Location = new System.Drawing.Point(39, 317);
+            this.LblAvisos.Name = "LblAvisos";
+            this.LblAvisos.Size = new System.Drawing.Size(194, 18);
+            this.LblAvisos.TabIndex = 0;
+            this.LblAvisos.Text = "Aguarde consultando CEP...";
+            this.LblAvisos.Visible = false;
+            // 
             // FrmCadCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -670,6 +683,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblAvisos);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -738,6 +752,7 @@
         private System.Windows.Forms.Button Btnew;
         private System.Windows.Forms.Button BtSave;
         public System.Windows.Forms.TextBox TxtId;
+        private System.Windows.Forms.Label LblAvisos;
     }
 }
 
