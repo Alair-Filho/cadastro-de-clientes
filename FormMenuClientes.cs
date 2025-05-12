@@ -5,6 +5,11 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using static System.Windows.Forms.LinkLabel;
+using Microsoft.Reporting.WinForms;
+using System.Data;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
+using Cadastro_De_Clientes.Properties;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 
 namespace Cadastro_De_Clientes
 {
@@ -35,6 +40,7 @@ namespace Cadastro_De_Clientes
         private void FormMenuClientes_Load(object sender, EventArgs e)
         {
             BuscarClientes();
+            
         }
 
         private void dgLista_Sorted(object sender, EventArgs e)
@@ -80,6 +86,7 @@ namespace Cadastro_De_Clientes
         {
             BtEdit.Enabled = true;
             BtImprimir.Enabled = true;
+            
         }
 
         private void BtEdit_Click(object sender, EventArgs e)
@@ -229,6 +236,43 @@ namespace Cadastro_De_Clientes
             LblCancelados.Text = $"Total Cancelados: {contador}";
 
             LblAtivos.Text = $"Total Ativos: {(dgLista.Rows.Count - contador)}";
+        }
+
+        private void BtPdf_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void BtImprimir_Click(object sender, EventArgs e)
+        {
+            string id = dgLista.CurrentRow.Cells["id"].Value.ToString();
+
+            DataRow linha = BancoDeDados.BuscaSQL($"SELECT * FROM clientes WHERE id = {id} ").Rows[0];
+
+            string foto = PastaFotos + id + ".png";
+            if (File.Exists(foto) == false)
+            {
+                foto = $"{PastaFotos}avatar.png";
+            }
+            ReportParameterCollection parametros = new ReportParameterCollection
+            {
+                new ReportParameter("nome",linha["nome"].ToString()),
+                new ReportParameter("endereco",linha["endereco"].ToString()),
+                new ReportParameter("data_nascimento",linha["data_nascimento"].ToString().Replace("00:00:00","")),
+                new ReportParameter("documento",linha["documento"].ToString()),
+                new ReportParameter("rg",linha["rg"].ToString()),
+                new ReportParameter("telefone",linha["telefone"].ToString()),
+                new ReportParameter("email",linha["email"].ToString()),
+                new ReportParameter("genero",linha["genero"].ToString()),
+                new ReportParameter("estado_civil",linha["estado_civil"].ToString()),
+                new ReportParameter("numero_casa",linha["numero_casa"].ToString()),
+                new ReportParameter("bairro",linha["bairro"].ToString()),
+                new ReportParameter("cidade",linha["cidade"].ToString()),
+                new ReportParameter("estado",linha["estado"].ToString()),
+                new ReportParameter("cep",linha["cep"].ToString()),
+                new ReportParameter("foto", $"File://{foto}")
+            };
+            Funcoes.ImprimirPDF(reportViewer1, "FichaCadastral", parametros);
         }
     }
 }
