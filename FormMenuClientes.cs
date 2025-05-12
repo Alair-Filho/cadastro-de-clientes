@@ -40,7 +40,6 @@ namespace Cadastro_De_Clientes
         private void FormMenuClientes_Load(object sender, EventArgs e)
         {
             BuscarClientes();
-            
         }
 
         private void dgLista_Sorted(object sender, EventArgs e)
@@ -240,12 +239,21 @@ namespace Cadastro_De_Clientes
 
         private void BtPdf_Click(object sender, EventArgs e)
         {
-            
+            DataTable dtClientes = BancoDeDados.BuscaSQL("SELECT * FROM clientes");
+
+            // Usa diretamente no ReportDataSource
+            ReportDataSource rds = new ReportDataSource("DataSet1", dtClientes);
+
+            reportRelatorio.LocalReport.DataSources.Clear();
+            reportRelatorio.LocalReport.DataSources.Add(rds);
+
+            Funcoes.ImprimirPDF(reportRelatorio, "RelatorioClientes");
         }
 
         private void BtImprimir_Click(object sender, EventArgs e)
         {
             string id = dgLista.CurrentRow.Cells["id"].Value.ToString();
+
 
             DataRow linha = BancoDeDados.BuscaSQL($"SELECT * FROM clientes WHERE id = {id} ").Rows[0];
 
@@ -269,6 +277,7 @@ namespace Cadastro_De_Clientes
                 new ReportParameter("bairro",linha["bairro"].ToString()),
                 new ReportParameter("cidade",linha["cidade"].ToString()),
                 new ReportParameter("estado",linha["estado"].ToString()),
+                new ReportParameter("situacao",linha["situacao"].ToString()),
                 new ReportParameter("cep",linha["cep"].ToString()),
                 new ReportParameter("foto", $"File://{foto}")
             };

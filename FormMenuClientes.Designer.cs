@@ -89,6 +89,7 @@
             this.LblCancelados = new System.Windows.Forms.Label();
             this.LblNadaEncontrado = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportRelatorio = new Microsoft.Reporting.WinForms.ReportViewer();
             this.Ações.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -649,6 +650,17 @@
             this.reportViewer1.TabIndex = 4;
             this.reportViewer1.Visible = false;
             // 
+            // reportRelatorio
+            // 
+            this.reportRelatorio.DocumentMapWidth = 8;
+            this.reportRelatorio.LocalReport.ReportEmbeddedResource = "Cadastro_De_Clientes.RelatorioClientes.rdlc";
+            this.reportRelatorio.Location = new System.Drawing.Point(47, 497);
+            this.reportRelatorio.Name = "reportRelatorio";
+            this.reportRelatorio.ServerReport.BearerToken = null;
+            this.reportRelatorio.Size = new System.Drawing.Size(384, 133);
+            this.reportRelatorio.TabIndex = 5;
+            this.reportRelatorio.Visible = false;
+            // 
             // FormMenuClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -656,6 +668,7 @@
             this.BackgroundImage = global::Cadastro_De_Clientes.Properties.Resources.Captura_de_tela_2025_04_23_174547;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1704, 881);
+            this.Controls.Add(this.reportRelatorio);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.LblNadaEncontrado);
             this.Controls.Add(this.dgLista);
@@ -730,5 +743,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn observacao;
         private System.Windows.Forms.Label LblNadaEncontrado;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportRelatorio;
     }
 }
