@@ -2,6 +2,8 @@
 
 Este projeto é uma aplicação de **Cadastro de Clientes** desenvolvida em **C# com Windows Forms** e banco de dados **MySQL Workbench**. O sistema permite gerenciar os dados dos clientes com funcionalidades completas de CRUD, pesquisa, filtros, geração de relatórios e integração com API de CEP.
 
+[![Assistir Demonstração no YouTube](https://img.youtube.com/vi/jhnaX2X6Ay0/hqdefault.jpg)](https://youtu.be/jhnaX2X6Ay0)
+
 ---
 
 ## 📌 Funcionalidades
